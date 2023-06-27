@@ -1,18 +1,25 @@
 
 import { useEffect, useState } from 'react';
 import './App.css';
+import axios from 'axios';
 
 function App() {
 
   let [data, setData] =  useState([])
 
-  const fetchData = () =>{
-    fetch("http://localhost:5000/students")
-      .then(res=> res.json())
-      .then(data =>{
-          console.log(data)
-          setData(data)
-      })
+  const fetchData = async () =>{
+    // fetch("http://localhost:5000/products")
+    //   .then(res=> res.json())
+    //   .then(data =>{
+    //       console.log(data)
+    //       setData(data)
+    //   })
+    // axios.post("http://localhost:5000/products")
+    //   .then(data =>{
+    //     setData(data.data)
+    //   })
+    const data =  await axios.get("http://localhost:5000/products")
+    setData(data.data)
   }
 
   useEffect(()=>{
@@ -22,8 +29,8 @@ function App() {
   return (
     <div className="App">
         {
-          data.map(val =>{
-            return <h1>{val.name}</h1>
+          data.map((val,ind) =>{
+            return <h1>{val.title}</h1>
           })
         }
     </div>
