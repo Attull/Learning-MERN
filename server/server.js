@@ -1,31 +1,15 @@
 import Express from "express"
 import cors from 'cors'
+import route from "./Routes/fsdRoutes.js"
+import productRoute from "./Routes/productRoutes.js"
+
 
 const app =  Express()
 
 app.use(cors())
 
-app.get('/', (req, res)=>{
-    res.send("Heyyyy Nodemon")
-})
-
-app.get('/students', (req, res)=>{
-    res.json([
-        {
-            name:'Vishal',
-            batch:19
-        },
-        {
-            name:'Ahmad',
-            batch:21
-        },
-        {
-            name:'Mahesh',
-            batch:22
-        }
-    ]
-    )
-})
+app.use(route)
+app.use(productRoute)
 
 app.listen(5000, ()=>{
     console.log("server start on PORT 5000")
