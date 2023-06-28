@@ -18,7 +18,7 @@ function App() {
     //   .then(data =>{
     //     setData(data.data)
     //   })
-    const data =  await axios.get("http://localhost:5000/products")
+    const data =  await axios.get("http://localhost:5000/fsdAPI/students")
     setData(data.data)
   }
 
@@ -30,7 +30,7 @@ function App() {
     <div className="App">
         {
           data.map((val,ind) =>{
-            return <h1>{val.title}</h1>
+            return <h1>{val.name}</h1>
           })
         }
     </div>

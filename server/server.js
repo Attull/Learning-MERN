@@ -7,7 +7,7 @@ import productRoute from "./Routes/productRoutes.js"
 const app =  Express()
 
 app.use(cors())
-
+app.use(Express.json())
 // fsd routes
 app.use("/fsdAPI",fsdRoute)
 
