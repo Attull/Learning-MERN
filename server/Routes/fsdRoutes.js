@@ -1,28 +1,10 @@
 import { Router } from "express";
+import  {fsdController, fsdTrainerController } from "../Controllers/fsdController.js";
 
-const route = Router()
+const fsdRoute = Router()
 
-route.get('/', (req, res)=>{
-    res.send("Heyyyy Nodemon")
-})
+fsdRoute.get('/students', fsdController)
+fsdRoute.get('/trainer',fsdTrainerController)
 
-route.get('/students', (req, res)=>{
-    res.json([
-        {
-            name:'Vishal',
-            batch:19
-        },
-        {
-            name:'Ahmad',
-            batch:21
-        },
-        {
-            name:'Mahesh',
-            batch:22
-        }
-    ]
-    )
-})
+export default fsdRoute
 
-
-export default route
