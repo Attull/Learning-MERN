@@ -8,7 +8,6 @@ import {config} from "dotenv"
 const app =  Express()
 
 app.use(cors())
-config()
 
 // fsd routes
 app.use("/fsdAPI",fsdRoute)
